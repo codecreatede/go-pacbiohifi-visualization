@@ -14,7 +14,6 @@ Usage:
 
 Flags:
   -b, --bamfile string     pacbiohifi bam file (default "inputfile should be bam")
-  -t, --bins defined       bin patterns (default true)
   -h, --help               help for flag
   -i, --inputfile string   pacbiohifi reads file (default "inputfile for the fastq reads")
 ```

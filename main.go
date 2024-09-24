@@ -30,7 +30,6 @@ func main() {
 
 var (
 	inputfile string
-	bin       bool
 	bamfile   string
 )
 
@@ -43,8 +42,6 @@ var rootCmd = &cobra.Command{
 func init() {
 	rootCmd.Flags().
 		StringVarP(&inputfile, "inputfile", "i", "inputfile for the fastq reads", "pacbiohifi reads file")
-	rootCmd.Flags().
-		BoolVarP(&bin, "bins defined", "t", true, "bin patterns")
 	rootCmd.Flags().
 		StringVarP(&bamfile, "bamfile", "b", "inputfile should be bam", "pacbiohifi bam file")
 }
