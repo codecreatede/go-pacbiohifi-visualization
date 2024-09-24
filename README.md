@@ -3,7 +3,7 @@
 - bins the sequenced pacbiohifi reads for visualization
 - this should be used to see your sequencing runs distribution.
 - also takes the bam file convert them to the fastq and estimates and plots the visualization.
-
+- it uses [Pterm](https://github.com/pterm/pterm) to directly give you the visualization plots.
 ```
 [gauravsablok@ultramarine]~/Desktop/codecreatede/golang/golang-pacbiohifi-visualization% \
 go run main.go -h
