@@ -1,4 +1,4 @@
-go-pacbiohifi-visualization
+# go-pacbiohifi-visualization
 
 - bins the sequenced pacbiohifi reads for visualization
 - this should be used to see your sequencing runs distribution.
