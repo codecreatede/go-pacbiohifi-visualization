@@ -50,4 +50,6 @@ go run main.go fastq -i ./sample-files/samplepacbiohifi.fastq
 
 ```
 
+![](https://github.com/codecreatede/go-pacbiohifi-visualization/blob/main/go-pacbiohifivisualization.png)
+
 Gaurav Sablok
