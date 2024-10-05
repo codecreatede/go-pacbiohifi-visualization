@@ -8,7 +8,24 @@
 - it uses [Pterm](https://github.com/pterm/pterm) to directly give you the visualization plots.
 
 ```
-gauravsablok@gaurav-sablok ~/Desktop/codecreatede/golang/golang-pacbiohifi-visualization ±main⚡ » \
+gauavsablok@gauravsablok ~/Desktop/codecreatede/golang/golang-pacbiohifi-visualization ±main⚡ » \
+go run main.go -h
+This pacbiohifi application provides the binning intervals of the sequence classification from the sequencing reads
+
+Usage:
+  flag [command]
+
+Available Commands:
+  bam
+  completion  Generate the autocompletion script for the specified shell
+  fastq
+  help        Help about any command
+
+Flags:
+  -h, --help   help for flag
+
+Use "flag [command] --help" for more information about a command.
+gauavsablok@gauravsablok ~/Desktop/codecreatede/golang/golang-pacbiohifi-visualization ±main⚡ » \
 go run main.go fastq -h
 Analyzes the fastq files
 
@@ -18,7 +35,7 @@ Usage:
 Flags:
   -h, --help               help for fastq
   -i, --inputfile string   pacbiohifi reads file (default "inputfile for the fastq reads")
-gauravsablok@gaurav-sablok ~/Desktop/codecreatede/golang/golang-pacbiohifi-visualization ±main⚡ » \
+gauavsablok@gauravsablok ~/Desktop/codecreatede/golang/golang-pacbiohifi-visualization ±main⚡ » \
 go run main.go bam -h
 Analyzes the bam files
 
@@ -28,7 +45,8 @@ Usage:
 Flags:
   -b, --bamfile string   pacbiohifi bam file or the folder containing the bam files along with the pbi files (default "inputfile should be bam")
   -h, --help             help for bam
-
+gauavsablok@gauravsablok ~/Desktop/codecreatede/golang/golang-pacbiohifi-visualization ±main⚡ » \
+go run main.go fastq -i ./sample-files/samplepacbiohifi.fastq
 
 ```
 

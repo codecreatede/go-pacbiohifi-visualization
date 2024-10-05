@@ -55,6 +55,7 @@ var bamCmd = &cobra.Command{
 func init() {
 	fastqCmd.Flags().
 		StringVarP(&inputfile, "inputfile", "i", "inputfile for the fastq reads", "pacbiohifi reads file")
+
 	bamCmd.Flags().
 		StringVarP(&bamfile, "bamfile", "b", "inputfile should be bam", "pacbiohifi bam file or the folder containing the bam files along with the pbi files")
 
@@ -72,6 +73,13 @@ func fastqFunc(cmd *cobra.Command, args []string) {
 
 	header := []headerID{}
 	sequence := []sequenceID{}
+	sequence5K := []string{}
+	sequence10K := []string{}
+	sequence20K := []string{}
+	sequence30K := []string{}
+	sequence40K := []string{}
+	sequence50K := []string{}
+	sequenceL50K := []string{}
 	sequence100K := []string{}
 	sequence110K := []string{}
 	sequence120K := []string{}
@@ -107,6 +115,27 @@ func fastqFunc(cmd *cobra.Command, args []string) {
 	}
 
 	for i := range sequence {
+		if len(string(sequence[i].seq)) >= 1000 && len(string(sequence[i].seq)) <= 5000 {
+			sequence5K = append(sequence5K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 5000 && len(string(sequence[i].seq)) <= 10000 {
+			sequence10K = append(sequence10K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 10000 && len(string(sequence[i].seq)) <= 20000 {
+			sequence20K = append(sequence20K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 20000 && len(string(sequence[i].seq)) <= 30000 {
+			sequence30K = append(sequence30K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 30000 && len(string(sequence[i].seq)) <= 40000 {
+			sequence40K = append(sequence40K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 40000 && len(string(sequence[i].seq)) <= 50000 {
+			sequenceL50K = append(sequenceL50K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) >= 50000 && len(string(sequence[i].seq)) <= 100000 {
+			sequence50K = append(sequence50K, sequence[i].seq)
+		}
 		if len(string(sequence[i].seq)) >= 100000 {
 			sequence100K = append(sequence100K, sequence[i].seq)
 		}
@@ -143,25 +172,31 @@ func fastqFunc(cmd *cobra.Command, args []string) {
 		if len(string(sequence[i].seq)) > 200000 {
 			sequenceabove200K = append(sequenceabove200K, sequence[i].seq)
 		}
-
-		bars := []pterm.Bar{
-			{Label: "sequence100K", Value: len(sequence100K)},
-			{Label: "sequence110K", Value: len(sequence110K)},
-			{Label: "sequence120K", Value: len(sequence120K)},
-			{Label: "sequence130K", Value: len(sequence130K)},
-			{Label: "sequence140K", Value: len(sequence140K)},
-			{Label: "sequence150K", Value: len(sequence150K)},
-			{Label: "sequence160K", Value: len(sequence160K)},
-			{Label: "sequence170K", Value: len(sequence170K)},
-			{Label: "sequence180K", Value: len(sequence180K)},
-			{Label: "sequence190K", Value: len(sequence190K)},
-			{Label: "sequence200K", Value: len(sequence200K)},
-			{Label: "sequenceabove200K", Value: len(sequenceabove200K)},
-		}
-		pterm.Info.Println("Profiling your Pacbiohifi sequencing reads")
-		pterm.DefaultBarChart.WithBars(bars).Render()
-
 	}
+
+	bars := []pterm.Bar{
+		{Label: "sequence5K", Value: len(sequence5K)},
+		{Label: "sequence10K", Value: len(sequence10K)},
+		{Label: "sequence20K", Value: len(sequence20K)},
+		{Label: "sequence30K", Value: len(sequence30K)},
+		{Label: "sequence40K", Value: len(sequence40K)},
+		{Label: "sequenceL50K", Value: len(sequenceL50K)},
+		{Label: "sequence50K", Value: len(sequence50K)},
+		{Label: "sequence100K", Value: len(sequence100K)},
+		{Label: "sequence110K", Value: len(sequence110K)},
+		{Label: "sequence120K", Value: len(sequence120K)},
+		{Label: "sequence130K", Value: len(sequence130K)},
+		{Label: "sequence140K", Value: len(sequence140K)},
+		{Label: "sequence150K", Value: len(sequence150K)},
+		{Label: "sequence160K", Value: len(sequence160K)},
+		{Label: "sequence170K", Value: len(sequence170K)},
+		{Label: "sequence180K", Value: len(sequence180K)},
+		{Label: "sequence190K", Value: len(sequence190K)},
+		{Label: "sequence200K", Value: len(sequence200K)},
+		{Label: "sequenceabove200K", Value: len(sequenceabove200K)},
+	}
+	pterm.Info.Println("Profiling your Pacbiohifi sequencing reads")
+	pterm.DefaultBarChart.WithBars(bars).Render()
 }
 
 func bamFunc(cmd *cobra.Command, args []string) {
@@ -189,6 +224,13 @@ func bamFunc(cmd *cobra.Command, args []string) {
 
 	header := []headerID{}
 	sequence := []sequenceID{}
+	sequence5K := []string{}
+	sequence10K := []string{}
+	sequence20K := []string{}
+	sequence30K := []string{}
+	sequence40K := []string{}
+	sequence50K := []string{}
+	sequenceL50K := []string{}
 	sequence100K := []string{}
 	sequence110K := []string{}
 	sequence120K := []string{}
@@ -224,6 +266,27 @@ func bamFunc(cmd *cobra.Command, args []string) {
 	}
 
 	for i := range sequence {
+		if len(string(sequence[i].seq)) >= 1000 && len(string(sequence[i].seq)) <= 5000 {
+			sequence5K = append(sequence5K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 5000 && len(string(sequence[i].seq)) <= 10000 {
+			sequence10K = append(sequence10K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 10000 && len(string(sequence[i].seq)) <= 20000 {
+			sequence20K = append(sequence20K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 20000 && len(string(sequence[i].seq)) <= 30000 {
+			sequence30K = append(sequence30K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 30000 && len(string(sequence[i].seq)) <= 40000 {
+			sequence40K = append(sequence40K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) > 40000 && len(string(sequence[i].seq)) <= 50000 {
+			sequenceL50K = append(sequenceL50K, sequence[i].seq)
+		}
+		if len(string(sequence[i].seq)) >= 50000 && len(string(sequence[i].seq)) <= 100000 {
+			sequence50K = append(sequence50K, sequence[i].seq)
+		}
 		if len(string(sequence[i].seq)) >= 100000 {
 			sequence100K = append(sequence100K, sequence[i].seq)
 		}
@@ -262,6 +325,13 @@ func bamFunc(cmd *cobra.Command, args []string) {
 		}
 
 		bars := []pterm.Bar{
+			{Label: "sequence5K", Value: len(sequence5K)},
+			{Label: "sequence10K", Value: len(sequence10K)},
+			{Label: "sequence20K", Value: len(sequence20K)},
+			{Label: "sequence30K", Value: len(sequence30K)},
+			{Label: "sequence40K", Value: len(sequence40K)},
+			{Label: "sequenceL50K", Value: len(sequenceL50K)},
+			{Label: "sequence50K", Value: len(sequence50K)},
 			{Label: "sequence100K", Value: len(sequence100K)},
 			{Label: "sequence110K", Value: len(sequence110K)},
 			{Label: "sequence120K", Value: len(sequence120K)},
